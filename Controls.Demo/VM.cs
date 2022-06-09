@@ -41,7 +41,12 @@ public class VM : INotifyPropertyChanged
     private List<IBackend> backends = new List<IBackend>
     {
         new Backends.StarWars(),
-        new Backends.MockGraphQLClient(new Backends.MockGraphQLServer(new Backends.StarTrek()))
+        new Backends.ResponderClient(new Backends.ResponderServer(new Backends.StarTrek()))
+        {
+            Name = "Star Trek Responder Client",
+            Description = "Star Trek Reponder Server Backend"
+        }
+        //new Backends.MockGraphQLClient(new Backends.MockGraphQLServer(new Backends.StarTrek()))
 };
 
     public event PropertyChangedEventHandler? PropertyChanged;

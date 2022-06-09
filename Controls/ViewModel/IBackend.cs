@@ -1,10 +1,10 @@
 ﻿namespace Controls.ViewModel;
 
-public interface IBackend
+public interface IBackend: INotifyPropertyChanged
 {
     string Name { get; }
     string Description { get; }
-    IEnumerable<Contact> Contacts { get; }
+    List<Contact> Contacts { get; }
 
     void DeleteContact(string name);
 }

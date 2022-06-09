@@ -1,34 +1,12 @@
 ﻿namespace Controls.ViewModel;
 
-internal class Design : IBackend
+internal class Design : Backend,IBackend
 {
-    public string Name
-    { get { return "Design"; } }
-
-    public string Description
-    { get { return "A simple BackEnd for use as a d:DataContext"; } }
-
-    public IEnumerable<Contact> Contacts
+    public Design()
     {
-        get
-        {
-            return _contacts;
-        }
-    }
-
-    public void DeleteContact(string name)
-    {
-        if (_contacts.Where(c => c.Name == name).FirstOrDefault() is Contact contact)
-        {
-            _contacts.Remove(contact);
-        }
-        else
-        {
-            throw new Exception($"Contact of name '{name}' was not found");
-        }
-    }
-
-    private readonly List<Contact> _contacts = new()
+        Name = "Design";
+        Description = "A Design Backend";
+        Contacts = new()
     {
             new Contact
             {
@@ -46,4 +24,6 @@ internal class Design : IBackend
                 Email = "han.solo@cloudcity.com"
             }
         };
+    }
+
 }

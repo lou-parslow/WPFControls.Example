@@ -16,54 +16,19 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <ListBox ItemsSource="{Binding Contacts}">
+                <ListBox ItemsSource="{Binding Contacts,BindsDirectlyToSource=True}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <local:ContactDeleteButton ContactName="{Binding Name}"/>
-                                <Label Content="{Binding Name}" />
-                                <Label Content="{Binding Email}" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <local:ContactDeleteButton ContactName="{Binding Name}"
+                                                           Backend="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}},Path=DataContext.Backend}"/>
+                                <Label Content="{Binding Name}" Width="200"/>
+                                <Label Content="{Binding Email}" HorizontalContentAlignment="Stretch" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </ScrollViewer>
-            <GroupBox Header="Add Contact" Grid.Row="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Label>Name</Label>
-                    <TextBox Grid.Column="1"></TextBox>
-                    <Label Grid.Row="1">Email</Label>
-                    <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
-                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
-                        <Button>Add</Button>
-                    </StackPanel>
-                </Grid>
-                <!--
-                <Grid
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Label>Name</Label>
-                    <TextBox Grid.Column="1"></TextBox>
-                </Grid>-->
-            </GroupBox>
         </Grid>
     </GroupBox>
 </UserControl>

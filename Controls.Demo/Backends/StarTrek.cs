@@ -1,34 +1,12 @@
 ﻿namespace Controls.Demo.Backends;
 
-internal class StarTrek : IBackend
+internal class StarTrek : Backend
 {
-    public string Name
-    { get { return "Star Trek"; } }
-
-    public string Description
-    { get { return "Star Trek BackEnd"; } }
-
-    public IEnumerable<Contact> Contacts
+    public StarTrek()
     {
-        get
-        {
-            return _contacts;
-        }
-    }
-
-    public void DeleteContact(string name)
-    {
-        if (_contacts.Where(c => c.Name == name).FirstOrDefault() is Contact contact)
-        {
-            _contacts.Remove(contact);
-        }
-        else
-        {
-            throw new Exception($"Contact of name '{name}' was not found");
-        }
-    }
-
-    private List<Contact> _contacts = new()
+        Name = "Star Trek";
+        Description = "Star Trek BackEnd";
+        Contacts = new()
     {
             new Contact
             {
@@ -46,4 +24,8 @@ internal class StarTrek : IBackend
                 Email="glaforge@engineering.uss.enterprise.com"
             }
         };
+    }
+  
+
+
 }
