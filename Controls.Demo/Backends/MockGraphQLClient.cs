@@ -24,7 +24,7 @@ internal class MockGraphQLClient : IBackend
     {
         get
         {
-            return JsonSerializer.Deserialize<IEnumerable<Contact>>(_server.Respond(MockGraphQLServer.ContactsQuery));
+            return JsonSerializer.Deserialize<IEnumerable<Contact>>(_server.Respond(MockGraphQLServer.ContactsQuery))!;
         }
     }
 

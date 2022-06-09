@@ -8,7 +8,7 @@ public class Contact : INotifyPropertyChanged
         set { _name = value; OnPropertyChanged(); }
     }
 
-    private string _name;
+    private string _name = string.Empty;
 
     public string Email
     {
@@ -16,7 +16,7 @@ public class Contact : INotifyPropertyChanged
         set { _email = value; OnPropertyChanged(); }
     }
 
-    private string _email;
+    private string _email = string.Empty;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

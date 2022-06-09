@@ -18,14 +18,13 @@
 
         public void DeleteContact(string name)
         {
-            Contact contact = _contacts.Where(c => c.Name == name).FirstOrDefault();
-            if (contact is null)
+            if (_contacts.Where(c => c.Name == name).FirstOrDefault() is Contact contact)
             {
-                throw new Exception($"Contact of name '{name}' was not found");
+                _contacts.Remove(contact);
             }
             else
             {
-                _contacts.Remove(contact);
+                throw new Exception($"Contact of name '{name}' was not found");
             }
         }
 

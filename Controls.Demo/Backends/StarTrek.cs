@@ -18,19 +18,18 @@ internal class StarTrek : IBackend
 
     public void DeleteContact(string name)
     {
-        Contact contact = _contacts.Where(c => c.Name == name).FirstOrDefault();
-        if (contact is null)
-        {
-            throw new Exception($"Contact of name '{name}' was not found");
-        }
-        else
+        if (_contacts.Where(c => c.Name == name).FirstOrDefault() is Contact contact)
         {
             _contacts.Remove(contact);
         }
+        else
+        {
+            throw new Exception($"Contact of name '{name}' was not found");
+        }
     }
 
-    private List<Contact> _contacts = new List<Contact>
-        {
+    private List<Contact> _contacts = new()
+    {
             new Contact
             {
                 Name="Jean-Luc Picard",

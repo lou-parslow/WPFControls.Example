@@ -33,5 +33,10 @@ internal class MockGraphQLServer
         }
     }
 
+    public static string GetDeleteContactMutation(string name)
+    {
+        return "$mutation{deleteContact(name:\"{name}\"){name,email}}";
+    }
+
     private IBackend _backend;
 }
