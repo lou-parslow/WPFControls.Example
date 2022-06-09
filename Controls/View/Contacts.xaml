@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Controls.View"
              xmlns:vm="clr-namespace:Controls.ViewModel"
+             xmlns:view="clr-namespace:Controls.View"
              d:DataContext="{d:DesignInstance Type=vm:Design,IsDesignTimeCreatable=True}"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -20,9 +21,9 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                                <local:ContactDeleteButton ContactName="{Binding Name}"
+                                <view:ContactDeleteButton ContactName="{Binding Name}"
                                                            Backend="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}},Path=DataContext.Backend}"/>
-                                <Label Content="{Binding Name}" Width="200"/>
+                                <Label Content="{Binding Name}" Width="100"/>
                                 <Label Content="{Binding Email}" HorizontalContentAlignment="Stretch" />
                             </StackPanel>
                         </DataTemplate>

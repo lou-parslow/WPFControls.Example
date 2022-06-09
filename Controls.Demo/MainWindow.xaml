@@ -6,20 +6,31 @@
         xmlns:local="clr-namespace:Controls.Demo"
         xmlns:view="clr-namespace:Controls.View;assembly=Controls"
         mc:Ignorable="d"
-        Title="Controls.Demo" Height="450" Width="550">
+        Title="Controls.Demo" Height="450" Width="500">
     <Window.DataContext>
         <local:VM />
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Label>Backend</Label>
-            <ComboBox ItemsSource="{Binding BackendNames}" SelectedItem="{Binding BackendName}" />
-            <Label Content="{Binding Backend.Description}" />
-        </StackPanel>
-        <view:Contacts Grid.Row="1" DataContext="{Binding Backend}" />
+        <Border BorderThickness="20">
+            <GroupBox Header="Backend">
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox ItemsSource="{Binding BackendNames}" 
+                              SelectedItem="{Binding BackendName}" 
+                              Width="200"/>
+                    <Label Content="{Binding Backend.Description}" />
+                </StackPanel>
+            </GroupBox>
+            
+        </Border>
+        
+        <Border Grid.Row="1" BorderThickness="20">
+            <view:Contacts Grid.Row="1" DataContext="{Binding Backend}" />
+        </Border>
+        
     </Grid>
 </Window>

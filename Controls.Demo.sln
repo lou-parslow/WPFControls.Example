@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B716BE13-9D49-4221-9B99-03E0FA512475}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		rakefile.rb = rakefile.rb
 		README.md = README.md
 	EndProjectSection
 EndProject
