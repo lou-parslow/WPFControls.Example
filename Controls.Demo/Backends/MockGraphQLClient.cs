@@ -27,4 +27,8 @@ internal class MockGraphQLClient : IBackend
             return JsonSerializer.Deserialize<IEnumerable<Contact>>(_server.Respond(MockGraphQLServer.ContactsQuery));
         }
     }
+
+    public void DeleteContact(string name)
+    {
+    }
 }

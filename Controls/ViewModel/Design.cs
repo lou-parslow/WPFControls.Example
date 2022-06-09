@@ -16,6 +16,19 @@ internal class Design : IBackend
         }
     }
 
+    public void DeleteContact(string name)
+    {
+        Contact contact = _contacts.Where(c => c.Name == name).FirstOrDefault();
+        if (contact is null)
+        {
+            throw new Exception($"Contact of name '{name}' was not found");
+        }
+        else
+        {
+            _contacts.Remove(contact);
+        }
+    }
+
     private List<Contact> _contacts = new List<Contact>
         {
             new Contact

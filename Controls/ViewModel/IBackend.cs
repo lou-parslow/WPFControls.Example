@@ -5,4 +5,6 @@ public interface IBackend
     string Name { get; }
     string Description { get; }
     IEnumerable<Contact> Contacts { get; }
+
+    void DeleteContact(string name);
 }
