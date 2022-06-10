@@ -1,6 +1,6 @@
 ﻿namespace Controls.View
 {
-    internal class ContactDeleteButton : Button
+    public class ContactDeleteButton : Button
     {
         public ContactDeleteButton()
         {
@@ -14,7 +14,9 @@
                 contacts.DeleteContact(ContactName);
             }
         }
+
         #region string ContactName dependency property
+
         public string ContactName
         {
             get { return (string)GetValue(ContactNameProperty); }
@@ -27,6 +29,7 @@
         #endregion string ContactName dependency property
 
         #region ViewModel.IContacts Contacts dependency property
+
         public ViewModel.IContactGroup? Contacts
         {
             get { return (ViewModel.IContactGroup)GetValue(ContactsProperty); }
@@ -36,6 +39,6 @@
         public static readonly DependencyProperty ContactsProperty =
             DependencyProperty.Register(nameof(Contacts), typeof(ViewModel.IContactGroup), typeof(ContactDeleteButton));
 
-        #endregion ViewModel.Contacts dependency property
+        #endregion ViewModel.IContacts Contacts dependency property
     }
 }

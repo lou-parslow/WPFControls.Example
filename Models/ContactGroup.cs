@@ -1,13 +1,24 @@
 ﻿namespace Models;
-
-public class ContactGroup : INotifyPropertyChanged
+public interface IContactGroup
 {
+    string Name { get; }
 
+    string Description { get; }
+
+    List<Contact> Contacts { get; }
+
+    void DeleteContact(string name);
+}
+
+public class ContactGroup : IContactGroup
+{
     public string Name { get; set; } = "BackEnd";
 
     public string Description { get; set; } = "A Simple BackEnd";
 
-    public virtual List<Contact> Contacts { get { return _contacts; } set { _contacts = value; OnPropertyChanged(); } }
+    public virtual List<Contact> Contacts
+    { get { return _contacts; } set { _contacts = value; } }
+
     private List<Contact> _contacts = new();
 
     public virtual void DeleteContact(string name)
@@ -20,26 +31,19 @@ public class ContactGroup : INotifyPropertyChanged
         {
             throw new Exception($"Contact of name '{name}' was not found");
         }
-        Contacts = new List<Contact>(_contacts);
-        //OnPropertyChanged(nameof(Contacts));
     }
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected void OnPropertyChanged([CallerMemberName] string? caller = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(caller));
-    }
-
-    public static ContactGroup StarWars
+}
+public static class ContactGroups
+{
+    public static IContactGroup StarWars
     {
         get
         {
-            ContactGroup group = new ContactGroup()
+            ContactGroup group = new()
             {
                 Name = "Star Wars",
-                Description = "Star Wars ContactGroup"
-            };
-            group.Contacts = new List<Contact>
+                Description = "Star Wars ContactGroup",
+                Contacts = new List<Contact>
             {
                 new Contact
                     {
@@ -56,20 +60,21 @@ public class ContactGroup : INotifyPropertyChanged
                         Name = "Han Solo",
                         Email = "han.solo@cloudcity.com"
                     }
+            }
             };
             return group;
         }
     }
-    public static ContactGroup StarTrek
+
+    public static IContactGroup StarTrek
     {
         get
         {
-            ContactGroup group = new ContactGroup()
+            ContactGroup group = new()
             {
                 Name = "Star Trek",
-                Description = "Star Trek ContactGroup"
-            };
-            group.Contacts = new List<Contact>
+                Description = "Star Trek ContactGroup",
+                Contacts = new List<Contact>
             {
                 new Contact
             {
@@ -85,6 +90,7 @@ public class ContactGroup : INotifyPropertyChanged
             {
                 Name ="Geordi La Forge",
                 Email="glaforge@engineering.uss.enterprise.com"
+            }
             }
             };
             return group;
