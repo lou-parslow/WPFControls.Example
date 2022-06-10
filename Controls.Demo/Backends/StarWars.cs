@@ -1,6 +1,6 @@
 ﻿namespace Controls.Demo.Backends;
 
-public class StarWars : Backend
+public class StarWars : ViewModel.ContactGroup
 {
     public StarWars()
     {
@@ -25,6 +25,6 @@ public class StarWars : Backend
             }
         };
     }
-    
+
 
 }

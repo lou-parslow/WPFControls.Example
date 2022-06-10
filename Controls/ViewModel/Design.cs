@@ -1,6 +1,6 @@
 ﻿namespace Controls.ViewModel;
 
-internal class Design : Backend,IBackend
+internal class Design : ContactGroup//, IContactGroup
 {
     public Design()
     {

@@ -1,6 +1,6 @@
 ﻿namespace Controls.ViewModel;
 
-public interface IBackend: INotifyPropertyChanged
+public interface IContactGroup : INotifyPropertyChanged
 {
     string Name { get; }
     string Description { get; }

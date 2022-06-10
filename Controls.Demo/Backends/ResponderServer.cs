@@ -3,19 +3,19 @@ namespace Controls.Demo.Backends;
 
 internal class ResponderServer : IResponder
 {
-    public ResponderServer(IBackend backend)
+    public ResponderServer(IContactGroup group)
     {
-        _backend = backend;
+        _group = group;
     }
 
     public string Respond(string request)
     {
-        if (request == ResponderRequests.NameQuery) { return _backend.Name; }
-        if (request == ResponderRequests.DescriptionQuery) { return _backend.Description; }
-        if (request == ResponderRequests.ContactsQuery) { return JsonSerializer.Serialize(_backend.Contacts); }
+        if (request == ResponderRequests.NameQuery) { return _group.Name; }
+        if (request == ResponderRequests.DescriptionQuery) { return _group.Description; }
+        if (request == ResponderRequests.ContactsQuery) { return JsonSerializer.Serialize(_group.Contacts); }
         if (request.Contains("deleteContact:"))
         {
-            _backend.DeleteContact(request.Replace("deleteContact:", "").Trim());
+            _group.DeleteContact(request.Replace("deleteContact:", "").Trim());
             return "deleted";
         }
         else
@@ -23,5 +23,5 @@ internal class ResponderServer : IResponder
             throw new Exception("Invalid request {request}");
         }
     }
-    private IBackend _backend;
+    private IContactGroup _group;
 }

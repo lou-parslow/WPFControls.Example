@@ -22,7 +22,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                                 <view:ContactDeleteButton ContactName="{Binding Name}"
-                                                           Backend="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}},Path=DataContext.Backend}"/>
+                                                           Contacts="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}},Path=DataContext.Backend}"/>
                                 <Label Content="{Binding Name}" Width="100"/>
                                 <Label Content="{Binding Email}" HorizontalContentAlignment="Stretch" />
                             </StackPanel>

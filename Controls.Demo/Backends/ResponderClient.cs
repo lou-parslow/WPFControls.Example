@@ -1,7 +1,7 @@
 ﻿
 namespace Controls.Demo.Backends;
 
-internal class ResponderClient : Backend
+internal class ResponderClient : ViewModel.ContactGroup
 {
     public ResponderClient(ResponderServer server)
     {
@@ -24,5 +24,5 @@ internal class ResponderClient : Backend
         OnPropertyChanged(nameof(Contacts));
     }
 
-    private ResponderServer _server;
+    private readonly ResponderServer _server;
 }

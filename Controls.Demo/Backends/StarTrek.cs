@@ -1,6 +1,6 @@
 ﻿namespace Controls.Demo.Backends;
 
-internal class StarTrek : Backend
+internal class StarTrek : ViewModel.ContactGroup
 {
     public StarTrek()
     {
@@ -25,7 +25,7 @@ internal class StarTrek : Backend
             }
         };
     }
-  
+
 
 
 }
