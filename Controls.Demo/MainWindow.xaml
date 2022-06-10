@@ -17,19 +17,19 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Border BorderThickness="20">
-            <GroupBox Header="Backend">
+            <GroupBox Header="ContactGroup">
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox ItemsSource="{Binding BackendNames}" 
-                              SelectedItem="{Binding BackendName}" 
+                    <ComboBox ItemsSource="{Binding ContactGroupNames}" 
+                              SelectedItem="{Binding ContactGroupName}" 
                               Width="200"/>
-                    <Label Content="{Binding Backend.Description}" />
+                    <Label Content="{Binding ContactGroup.Description}" />
                 </StackPanel>
             </GroupBox>
             
         </Border>
         
         <Border Grid.Row="1" BorderThickness="20">
-            <view:Contacts Grid.Row="1" DataContext="{Binding Backend}" />
+            <view:Contacts Grid.Row="1" DataContext="{Binding ContactGroup}" />
         </Border>
         
     </Grid>

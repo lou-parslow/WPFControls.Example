@@ -1,6 +1,6 @@
 ﻿namespace Controls.View
 {
-    internal class ContactDeleteButton : Button
+    public class ContactDeleteButton : Button
     {
         public ContactDeleteButton()
         {
@@ -9,12 +9,14 @@
 
         protected override void OnClick()
         {
-            if(Backend is ViewModel.IBackend backend)
+            if (Contacts is ViewModel.IContactGroup contacts)
             {
-                backend.DeleteContact(ContactName);
+                contacts.DeleteContact(ContactName);
             }
         }
+
         #region string ContactName dependency property
+
         public string ContactName
         {
             get { return (string)GetValue(ContactNameProperty); }
@@ -26,16 +28,17 @@
 
         #endregion string ContactName dependency property
 
-        #region IBackend Backend dependency property
-        public ViewModel.IBackend? Backend
+        #region ViewModel.IContacts Contacts dependency property
+
+        public ViewModel.IContactGroup? Contacts
         {
-            get { return (ViewModel.IBackend)GetValue(BackendProperty); }
-            set { SetValue(BackendProperty, value); }
+            get { return (ViewModel.IContactGroup)GetValue(ContactsProperty); }
+            set { SetValue(ContactsProperty, value); }
         }
 
-        public static readonly DependencyProperty BackendProperty =
-            DependencyProperty.Register(nameof(Backend), typeof(ViewModel.IBackend), typeof(ContactDeleteButton));
+        public static readonly DependencyProperty ContactsProperty =
+            DependencyProperty.Register(nameof(Contacts), typeof(ViewModel.IContactGroup), typeof(ContactDeleteButton));
 
-        #endregion ViewModel.IBackend dependency property
+        #endregion ViewModel.IContacts Contacts dependency property
     }
 }
