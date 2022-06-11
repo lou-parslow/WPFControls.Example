@@ -1,4 +1,5 @@
 ﻿namespace Models;
+
 public interface IContactGroup
 {
     string Name { get; }
@@ -7,7 +8,7 @@ public interface IContactGroup
 
     List<Contact> Contacts { get; }
 
-    void DeleteContact(string name);
+    Contact DeleteContact(string name);
 }
 
 public class ContactGroup : IContactGroup
@@ -21,11 +22,12 @@ public class ContactGroup : IContactGroup
 
     private List<Contact> _contacts = new();
 
-    public virtual void DeleteContact(string name)
+    public virtual Contact DeleteContact(string name)
     {
         if (_contacts.Where(c => c.Name == name).FirstOrDefault() is Contact contact)
         {
             _contacts.Remove(contact);
+            return contact;
         }
         else
         {
@@ -33,6 +35,7 @@ public class ContactGroup : IContactGroup
         }
     }
 }
+
 public static class ContactGroups
 {
     public static IContactGroup StarWars

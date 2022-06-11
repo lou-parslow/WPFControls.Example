@@ -8,7 +8,7 @@ internal class ContactGroup : ViewModel.IContactGroup, INotifyPropertyChanged
     public ContactGroup(Models.IContactGroup model)
     { _model = model; }
 
-    private Models.IContactGroup _model;
+    private readonly Models.IContactGroup _model;
 
     public string Name
     {
@@ -28,10 +28,11 @@ internal class ContactGroup : ViewModel.IContactGroup, INotifyPropertyChanged
         }
     }
 
-    public void DeleteContact(string name)
+    public Contact DeleteContact(string name)
     {
-        _model.DeleteContact(name);
+        Models.Contact mc = _model.DeleteContact(name);
         OnPropertyChanged(nameof(Contacts));
+        return new Contact { Name = mc.Name, Email = mc.Email };
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;

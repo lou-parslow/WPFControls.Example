@@ -6,5 +6,5 @@ public interface IContactGroup : INotifyPropertyChanged
     string Description { get; }
     List<Contact> Contacts { get; }
 
-    void DeleteContact(string name);
+    Contact DeleteContact(string name);
 }
