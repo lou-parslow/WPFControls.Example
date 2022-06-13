@@ -41,16 +41,9 @@ public class VM : INotifyPropertyChanged
 
     private List<IContactGroup> contactGroups = new List<IContactGroup>
     {
+        // Dependency inject occurs here
         new Adapters.ContactGroup(Models.ContactGroups.StarWars),
         new Adapters.ContactGroup(Models.ContactGroups.StarTrek)
-        //new Adapters.ContactGroup(Models.ContactGroups.StarTrekGraphQL)
-        /*
-        new Backends.StarWars(),
-        new Backends.ResponderClient(new Backends.ResponderServer(new Backends.StarTrek()))
-        {
-            Name = "Star Trek Responder Client",
-            Description = "Star Trek Reponder Server Backend"
-        }*/
     };
 
     public event PropertyChangedEventHandler? PropertyChanged;
