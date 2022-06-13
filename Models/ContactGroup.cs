@@ -76,7 +76,7 @@ public static class ContactGroups
             ContactGroup group = new()
             {
                 Name = "Star Trek",
-                Description = "Star Trek ContactGroup",
+                Description = "Star Trek ContactGroup GraphQL Server",
                 Contacts = new List<Contact>
             {
                 new Contact
@@ -96,7 +96,7 @@ public static class ContactGroups
             }
             }
             };
-            return group;
+            return new Adapters.ContactGroupGraphQLClient(group);
         }
     }
 }
