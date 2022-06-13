@@ -32,7 +32,7 @@ public class VM : INotifyPropertyChanged
     {
         get
         {
-            IContactGroup cg = contactGroups.Where(b => b.Name == ContactGroupName).FirstOrDefault();
+            //IContactGroup cg = contactGroups.Where(b => b.Name == ContactGroupName).FirstOrDefault();
             return contactGroups.Where(b => b.Name == ContactGroupName).FirstOrDefault();
         }
     }
