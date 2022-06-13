@@ -18,3 +18,10 @@ The Controls library implements a View amd ViewModel layers
 
 # Controls.Demo
 The Adapters are used to inject custom models into the Controls ViewModel using adapter classes
+
+# Benefits of this pattern
+- Controls may be developed independently of any Model
+- By developing controls independently of a Model, Leaky abstractions are less likely to occur
+- By developing controls independently of a Model, Development is never blocked by a particular model
+- Models may be developed independenly of any ViewModel or View
+
